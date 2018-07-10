@@ -27,8 +27,7 @@ public class PropertiesExample {
     private Properties MyPropWithinClasspath(String fileName) {
         Properties prop =  new Properties();
         try (InputStream is = this.getClass().getResourceAsStream(fileName)) {
-            prop.lo
-            ad(is);
+            prop.load(is);
             System.out.println("Name: " + prop.getProperty("name"));
             System.out.println("Skills: " + prop.getProperty("skills"));
         } catch (IOException e) {
