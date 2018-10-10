@@ -1,4 +1,4 @@
-package com.mukul.java8features;
+package com.mukul.java8features.common;
 
 import java.util.HashMap;
 import java.util.Map;
