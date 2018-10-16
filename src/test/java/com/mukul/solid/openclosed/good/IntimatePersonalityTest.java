@@ -1,3 +1,6 @@
+package com.mukul.solid.openclosed.good;
+
+import com.mukul.solid.openclosed.good.IntimatePersonality;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

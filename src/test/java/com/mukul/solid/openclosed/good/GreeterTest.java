@@ -1,3 +1,7 @@
+package com.mukul.solid.openclosed.good;
+
+import com.mukul.solid.openclosed.good.Greeter;
+import com.mukul.solid.openclosed.good.Personality;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

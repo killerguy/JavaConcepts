@@ -1,3 +1,6 @@
+package com.mukul.solid.liskovsubstitution.bad;
+
+import com.mukul.solid.liskovsubstitution.bad.PenthouseSuite;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
