@@ -61,6 +61,7 @@ public class DateExample {
         System.out.println("Is First Date After Second Date : " + dateExample.isFirstDateAfterSecondDate(new Date(), getDate(2016, 07, 01)));
         System.out.println("Get year from Date : " + dateExample.getYear(new Date()));
         System.out.println("Get Add to Calender : " + dateExample.addHoursTo(calendar, 25).getTime());
+        System.out.println("Parse Data Date String : " + dateExample.parseDataDateString("01071987"));
     }
 
     public static Date getDateFromString() throws ParseException {
@@ -274,7 +275,7 @@ public class DateExample {
         return convertedDate;
     }
 
-    public Date parsedataDateString(String value) {
+    public Date parseDataDateString(String value) {
         if (value != null) {
             Matcher matcher = DATETIME_JSON_PATTERN.matcher(value);
 
