@@ -10,7 +10,8 @@ public class FindDuplicateCharInString {
     }
 
     public static String findFirstDuplicateCharacter() {
-        String src = "mukul";
+        String src = "mukull";
+        String a ="";
 
         Map<Character, Integer> map = new HashMap<Character, Integer>();
 
