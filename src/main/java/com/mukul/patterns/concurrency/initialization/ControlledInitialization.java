@@ -29,9 +29,9 @@ public class ControlledInitialization {
     private Resource1 resource1;
     private Resource2 resource2;
     private Resource3 resource3;
-    private CountDownLatch latch = new CountDownLatch(3);
+    private final CountDownLatch latch = new CountDownLatch(3);
 
-    private Runnable initResource1 = () -> {
+    private final Runnable initResource1 = () -> {
         try {
             // simulate wait
             Thread.sleep(4000);
@@ -42,7 +42,7 @@ public class ControlledInitialization {
         }
     };
 
-    private Runnable initResource2 = () -> {
+    private final Runnable initResource2 = () -> {
         try {
             // simulate wait
             Thread.sleep(4000);
@@ -53,7 +53,7 @@ public class ControlledInitialization {
         }
     };
 
-    private Runnable initResource3 = () -> {
+    private final Runnable initResource3 = () -> {
         try {
             // simulate wait
             Thread.sleep(4000);

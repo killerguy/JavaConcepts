@@ -2,6 +2,7 @@ package com.mukul.java8features.common;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class FlatMapExample {
@@ -32,21 +33,20 @@ public class FlatMapExample {
         foos.stream()
                 .flatMap(f -> f.bars.stream())
                 .forEach(b -> System.out.println(b.name));
-
     }
 
     private void singlePipelineFlatMapExample() {
         IntStream.range(1, 4)
                 .mapToObj(i -> new Foo("Foo" + i))
                 .peek(f -> IntStream.range(1, 4)
-                        .mapToObj(i -> new Bar("Bar" + i + " <- " +f.name))
+                        .mapToObj(i -> new Bar("Bar" + i + " <- " + f.name))
                         .forEach(f.bars::add))
                 .flatMap(f -> f.bars.stream())
                 .forEach(b -> System.out.println(b.name));
     }
 
 
-    class Foo {
+    static class Foo {
         String name;
         List<Bar> bars = new ArrayList<>();
 
@@ -55,7 +55,7 @@ public class FlatMapExample {
         }
     }
 
-    class Bar {
+    static class Bar {
         String name;
 
         Bar(String name) {

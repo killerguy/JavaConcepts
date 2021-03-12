@@ -22,7 +22,7 @@ public class CopyOnWriteArrayListExample {
         System.out.println("=== CopyOnWriteArrayList ===");
         Random random = new Random();
         // No ConcurrentModificationException
-        CopyOnWriteArrayList<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<Integer>();
+        CopyOnWriteArrayList<Integer> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
 
         for (int i = 0; i < 100; i++) {
             if (i % 8 == 0) {
@@ -37,7 +37,7 @@ public class CopyOnWriteArrayListExample {
                 executor.execute(() -> {
                     StringBuilder sb = new StringBuilder();
                     for (Integer vv : copyOnWriteArrayList) {
-                        sb.append(vv + " ");
+                        sb.append(vv).append(" ");
                     }
                     System.out.println("Reading " + sb.toString());
                 });

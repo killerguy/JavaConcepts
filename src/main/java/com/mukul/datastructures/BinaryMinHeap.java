@@ -9,7 +9,7 @@ public class BinaryMinHeap<T extends Comparable<T>> {
     private T[] elements;
     private int capacity;
     private int heapSize;
-    private Class<T> clazz;
+    private final Class<T> clazz;
 
     public BinaryMinHeap(Class<T> clazz) {
         this(clazz, 11);
@@ -26,14 +26,10 @@ public class BinaryMinHeap<T extends Comparable<T>> {
 
     public void insert(T element) {
         if (capacity == heapSize) {
-            if (heapSize == capacity) {
-                capacity *= 2;
-                T[] resizedElements = (T[]) Array.newInstance(clazz, capacity);
-                for (int i = 0; i < heapSize; i++) {
-                    resizedElements[i] = elements[i];
-                }
-                elements = resizedElements;
-            }
+            capacity *= 2;
+            T[] resizedElements = (T[]) Array.newInstance(clazz, capacity);
+            if (heapSize >= 0) System.arraycopy(elements, 0, resizedElements, 0, heapSize);
+            elements = resizedElements;
         }
 
         heapSize++;
@@ -52,7 +48,7 @@ public class BinaryMinHeap<T extends Comparable<T>> {
         T parent = elements[parentPos];
         if (parent == null)
             return;
-        boolean less = element.compareTo(parent) == -1;
+        boolean less = element.compareTo(parent) < 0;
         if (less) {
             // swap parent by child
             elements[parentPos] = element;
@@ -82,14 +78,14 @@ public class BinaryMinHeap<T extends Comparable<T>> {
         int smallest = pos;
         int left = getLeft(pos);
         if (left < heapSize) {
-            boolean leftLessThan = elements[smallest].compareTo(elements[left]) == 1;
+            boolean leftLessThan = elements[smallest].compareTo(elements[left]) > 0;
             if (leftLessThan)
                 smallest = left;
         }
 
         int right = getRight(pos);
         if (right < heapSize) {
-            boolean rightLessThan = elements[smallest].compareTo(elements[right]) == 1;
+            boolean rightLessThan = elements[smallest].compareTo(elements[right]) > 0;
             if (rightLessThan)
                 smallest = right;
         }

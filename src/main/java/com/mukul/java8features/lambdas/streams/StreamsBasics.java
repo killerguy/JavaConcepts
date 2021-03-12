@@ -13,11 +13,10 @@ import java.util.stream.Collectors;
  * of programming
  */
 public class StreamsBasics {
-    private int ONE_MILLION = 1000000;
-    List<Trade> trades = TradeUtil.createTrades();
+    private final int ONE_MILLION = 1000000;
 
     private List<Trade> findLargeTradesPreJava8(List<Trade> trades) {
-        List<Trade> largeTrades = new ArrayList<Trade>();
+        List<Trade> largeTrades = new ArrayList<>();
 
         for (Trade trade : trades) {
             if (trade.getQuantity() > ONE_MILLION && trade.isCancelledTrade()) {
@@ -39,29 +38,27 @@ public class StreamsBasics {
                 .collect(Collectors.toList());
     }
 
-    private List<Trade> findLargeTradesUsingParallelStreams2(List<Trade> trades) {
+    private List<Trade> findLargeTradesUsingParallelStreams2(List<Trade> trades,String instrument) {
         return trades.parallelStream()
                 .filter(trade -> trade.getQuantity() > ONE_MILLION)
-                .filter(trade -> trade.getInstrument().equals("IBM"))
+                .filter(trade -> trade.getInstrument().equals(instrument))
                 .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
         List<Trade> trades = TradeUtil.createTrades();
-        List<Trade> largeTrades = new StreamsBasics()
-                .findLargeTradesPreJava8(trades);
+
+        List<Trade> largeTrades = new StreamsBasics().findLargeTradesPreJava8(trades);
         System.out.println("Using pre-Java8:" + largeTrades);
 
-        largeTrades = new StreamsBasics()
-                .findLargeTradesUsingStreams(trades);
-
+        largeTrades = new StreamsBasics().findLargeTradesUsingStreams(trades);
         System.out.println("Using streams:" + largeTrades);
 
-        largeTrades = new StreamsBasics()
-                .findLargeTradesUsingParallelStreams(trades);
-
+        largeTrades = new StreamsBasics().findLargeTradesUsingParallelStreams(trades);
         System.out.println("Using parallel streams:" + largeTrades);
 
+        largeTrades = new StreamsBasics().findLargeTradesUsingParallelStreams2(trades,"IBM");
+        System.out.println("Using parallel streams2 :" + largeTrades);
     }
 
 }

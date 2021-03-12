@@ -3,8 +3,8 @@ package com.mukul.datastructures;
 public class Deque<E> {
 
     static class Node<E> {
-        E value = null;
-        Node<E> next = null;
+        E value;
+        Node<E> next;
 
         Node(E value, Node<E> next) {
             super();
@@ -36,8 +36,7 @@ public class Deque<E> {
             first.next = last;
         } else {
             Node<E> aux = first;
-            Node<E> node = new Node<>(value, aux);
-            first = node;
+            first = new Node<>(value, aux);
         }
         size++;
     }

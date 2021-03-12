@@ -7,7 +7,7 @@ public class CustomStackUsingLinkList {
 
     public static void main(String[] args) {
 
-        Stack<Integer> stackData = new Stack<Integer>();
+        Stack<Integer> stackData = new Stack<>();
         stackData.push(10);
         stackData.push(20);
         stackData.push(30);

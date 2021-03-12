@@ -36,8 +36,8 @@ public class MovieUtil {
 
         List<Movie> movies = new ArrayList<>();
         List<Actor> actors1 = new ArrayList<>();
-        Actor actor = null;
-        Movie movie = null;
+        Actor actor;
+        Movie movie;
 
 
         movie = new Movie("Sound Of Music");

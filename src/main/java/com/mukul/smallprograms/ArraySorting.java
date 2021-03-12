@@ -3,7 +3,7 @@ package com.mukul.smallprograms;
 public class ArraySorting {
 
     public static void main(String[] args) {
-        int a[] = new int[]{2, 1, 20, 5};
+        int[] a = new int[]{2, 1, 20, 5};
 
         System.out.println("Before sorting");
         for (int i : a) {

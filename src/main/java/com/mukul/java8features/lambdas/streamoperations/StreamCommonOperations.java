@@ -293,8 +293,6 @@ public class StreamCommonOperations {
 
     /**
      * Concatenating the instruments using reduction (no seed value given)
-     *
-     * @param trades
      */
     private void reduceNoSeed(List<Trade> trades) {
         Optional<String> instList = trades
@@ -324,33 +322,33 @@ public class StreamCommonOperations {
         List<Trade> trades = TradeUtil.createTrades();
         List<Employee> employees = EmployeeUtil.createEmployees();
 
-//		new StreamCommonOperations().findExecutives(employees);
-//		new StreamCommonOperations().chainingFilters(employees);
-//		new StreamCommonOperations().mapEmployeeName(employees);
-//		new StreamCommonOperations().upperCaseEmployees(employees);
-        // new StreamCommonOperations().actorStream(movies);
+		new StreamCommonOperations().findExecutives(employees);
+		new StreamCommonOperations().chainingFilters(employees);
+		new StreamCommonOperations().mapEmployeeName(employees);
+		new StreamCommonOperations().upperCaseEmployees(employees);
+      new StreamCommonOperations().actorStream(movies);
 
-        // Flattening function
-        // new StreamCommonOperations().flatMapMovieActors(movies);
-        // new StreamCommonOperations().flatMapMovies(movies);
+      //Flattening function
+      new StreamCommonOperations().flatMapMovieActors(movies);
+      new StreamCommonOperations().flatMapMovies(movies);
 
-        // Collection function
-        // new StreamCommonOperations().collectingToAList(trades);
-        // new StreamCommonOperations().collectingToASet(trades);
-        // new StreamCommonOperations().collectingToAMap(movies);
+      //Collection function
+      new StreamCommonOperations().collectingToAList(trades);
+      new StreamCommonOperations().collectingToASet(trades);
+      new StreamCommonOperations().collectingToAMap(movies);
 
-        // Distinct, Limit and Skip
-//		new StreamCommonOperations().distinctEmployees(employees);
-//		new StreamCommonOperations().limitOutput(employees);
-//		new StreamCommonOperations().skipEmployees(employees);
+      // Distinct, Limit and Skip
+		new StreamCommonOperations().distinctEmployees(employees);
+		new StreamCommonOperations().limitOutput(employees);
+		new StreamCommonOperations().skipEmployees(employees);
 
-        // Finder methods
-//		new StreamCommonOperations().findFirst(trades);
-//		new StreamCommonOperations().findAny(trades);
-        // Match Methods
-//		new StreamCommonOperations().anyMatch(trades);
-//		new StreamCommonOperations().allMatch(trades);
-//		new StreamCommonOperations().noneMatch(trades);
+      // Finder methods
+		new StreamCommonOperations().findFirst(trades);
+		new StreamCommonOperations().findAny(trades);
+      // Match Methods
+		new StreamCommonOperations().anyMatch(trades);
+		new StreamCommonOperations().allMatch(trades);
+		new StreamCommonOperations().noneMatch(trades);
 
         // Reduce methods
         new StreamCommonOperations().reduceNoSeed(trades);

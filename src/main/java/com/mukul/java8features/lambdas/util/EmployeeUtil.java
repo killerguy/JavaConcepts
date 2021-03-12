@@ -41,8 +41,8 @@ public class EmployeeUtil {
         emp5.setManager(manager2);
 
         Employee emp6 = new Employee(3, "Kirk Carlos", "Marketing", false);
-        employees.add(emp5);
-        emp5.setManager(manager2);
+        employees.add(emp6);
+        emp6.setManager(manager2);
 
         return employees;
 

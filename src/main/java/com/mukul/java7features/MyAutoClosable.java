@@ -7,7 +7,7 @@ public class MyAutoClosable implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         System.out.println("MyAutoClosable closed!");
     }
 

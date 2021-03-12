@@ -6,18 +6,9 @@ import com.mukul.java8features.lambdas.util.TradeUtil;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-/**
- * This class shows the usage of basic streams functionality.
- */
 public class Streaming {
     private int ONE_MILLION = 1000000;
 
-    /**
-     * Finding large trades
-     *
-     * @param trades
-     */
     private void findLargeTrades(List<Trade> trades) {
         trades.stream()
                 .filter(trade -> trade.getQuantity() > ONE_MILLION)
@@ -25,12 +16,6 @@ public class Streaming {
         ;
     }
 
-    /**
-     * Finding large trades - execution is run in parallel mode
-     *
-     * @param trades
-     * @return
-     */
     private List<Trade> findLargeTradesInParallel(List<Trade> trades) {
         List<Trade> bigTrades = trades
                 .stream()

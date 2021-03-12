@@ -8,9 +8,9 @@ public class KthSmallestElementInArrayWithRecursion {
 
     public static int find(int[] elements, int k) {
 
-        Queue<Integer> queue = new PriorityQueue<Integer>();
-        for (int i = 0; i < elements.length; i++) {
-            queue.offer(elements[i]);
+        Queue<Integer> queue = new PriorityQueue<>();
+        for (int element : elements) {
+            queue.offer(element);
         }
 
 
@@ -26,7 +26,7 @@ public class KthSmallestElementInArrayWithRecursion {
             System.out.println("Pol " + poll);
 
             int kthSmallestElement = findKthSmallestElement(k1, queue, poll);
-            System.out.println(kthSmallestElement);
+            System.out.println("-- "+kthSmallestElement);
             return kthSmallestElement;
         } else {
             return dataToBeReturn;

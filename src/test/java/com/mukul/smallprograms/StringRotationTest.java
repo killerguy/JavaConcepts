@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class StringRotationTest {
-    private StringRotation rotation = new StringRotation();
+    private final StringRotation rotation = new StringRotation();
 
     @Test
     public void withEmpty() {

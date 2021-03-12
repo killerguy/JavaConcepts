@@ -26,7 +26,7 @@ public class GroupingAndPartitioning {
 		Map<String, List<Employee>> deptEmployees = employees
 			.stream()
 			.collect(groupingBy(e -> e.getDepartment()));
-		
+
 		System.out.println(deptEmployees);
 	}
 
@@ -39,42 +39,42 @@ public class GroupingAndPartitioning {
 			.collect(Collectors.groupingBy(Employee::getCity));
 		System.out.println(cityEmployees);
 	}
-	
+
 	/**
 	 * Multi-level grouping usage: group employees by department and city
 	 */
 	private void groupingByDeptAndCity() {
-		Map<String, Map<String, List<Employee>>> deptAndCityEmployees =
-				employees.stream()
-		.collect(groupingBy((Employee::getDepartment), groupingBy(Employee::getCity)));
-		System.out.println(deptAndCityEmployees);
+			Map<String, Map<String, List<Employee>>> deptAndCityEmployees =
+					employees.stream()
+			.collect(groupingBy((Employee::getDepartment), groupingBy(Employee::getCity)));
+			System.out.println(deptAndCityEmployees);
 	}
-	
+
 	private void partitionByExecutives() {
 		Map<Boolean, List<Employee>> empPartition = employees
 				.stream()
 				.collect(Collectors.partitioningBy(Employee::isExecutive));
-	
+
 		System.out.println(empPartition);
 	}
-	
+
 	private void partitioningAndGrouping() {
 		Map<Boolean, Map<String, List<Employee>>> execEmployees = employees
 			.stream()
 			.collect(partitioningBy((Employee::isExecutive), groupingBy(Employee::getDepartment)));
-		
+
 		for(Boolean b: execEmployees.keySet()){
 			System.out.println(b+" --> "+execEmployees.get(b));
 		}
 	}
-	
+
 	private void multiLevelPartitioning() {
 		Map<Boolean, Map<Boolean, List<Employee>>> execEmployees = employees
 			.stream()
 			.collect(
-				partitioningBy((Employee::isExecutive), 
+				partitioningBy((Employee::isExecutive),
 				partitioningBy(Employee::isSenior)));
-		
+
 		for(Boolean b: execEmployees.keySet()){
 			System.out.println(b+":"+execEmployees.get(b));
 		}

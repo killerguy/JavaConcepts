@@ -4,6 +4,7 @@ import com.mukul.java8features.lambdas.domain.Movie;
 import com.mukul.java8features.lambdas.util.MovieUtil;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -45,13 +46,13 @@ public class LazyAndEagerStreams {
                     return s;
                 })
                 .forEach(System.out::println);
-//			.collect(Collectors.toList());
 
     }
 
     public static void main(String[] args) {
-//		new LazyAndEagerStreams().lazyIntermediateOperator();
-        new LazyAndEagerStreams().eagerTerminalOperator();
+      //  new LazyAndEagerStreams().eagerTerminalOperator();
+        System.out.println("-----------------------------------");
+        new LazyAndEagerStreams().lazyIntermediateOperator();
     }
 
 }

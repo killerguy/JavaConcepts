@@ -12,11 +12,9 @@ import java.util.function.UnaryOperator;
  */
 public class Primitives {
 
-    int tradeQuantity = 0;
+    int tradeQuantity = 10;
 
-    // Two types must be specified
     Function<Integer, Integer> tradeQuantityLambda = id -> {
-        // Fetch the quantity
         Trade t = getTrade(id);
         return t.getQuantity();
     };
@@ -39,5 +37,7 @@ public class Primitives {
 
     public static void main(String[] args) {
         new Primitives().binaryOp();
+        System.out.println(new Primitives().unaryOperator.apply(500));
+        System.out.println(new Primitives().tradeQuantityLambda.apply(500));
     }
 }

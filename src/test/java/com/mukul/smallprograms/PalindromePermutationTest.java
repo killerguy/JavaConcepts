@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class PalindromePermutationTest {
 
-    private PalindromePermutation palindromePermutation = new PalindromePermutation();
+    private final PalindromePermutation palindromePermutation = new PalindromePermutation();
 
     @Test
     public void withEmpty() {
@@ -24,7 +24,7 @@ public class PalindromePermutationTest {
     }
 
     @Test
-    public void withTwoWords_OddLetters_ThreeOccurences() {
+    public void withTwoWords_OddLetters_ThreeOccurrences() {
         assertTrue(palindromePermutation.check("act atac"));
     }
 

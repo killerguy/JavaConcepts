@@ -34,7 +34,7 @@ public class DateExample {
         DateExample dateExample = new DateExample();
 
         System.out.println("Date From String: " + getDateFromString());
-        System.out.println("Date From String as Paramter : " + dateExample.getDateFromString("25-05-2015 10:20:56"));
+        System.out.println("Date From String as Parameter : " + dateExample.getDateFromString("25-05-2015 10:20:56"));
         System.out.println("Date From separate String: " + getDate(2016, 07, 01));
         System.out.println("Calender From Date: " + getCalendarFromDate(date).getTime());
         System.out.println("Date from calender : " + getDateFromCalender(calendar));
@@ -357,8 +357,7 @@ public class DateExample {
             return Calendar.getInstance();
         }
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATABASE_SIMPLE_FORMAT, Locale.ENGLISH);
-        Calendar processedTime = getCalendarFromDate(dateFormat.parse(runDate));
-        return processedTime;
+        return getCalendarFromDate(dateFormat.parse(runDate));
     }
 
 

@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 public class FindDuplicates {
 
     public static void main(String[] args) {
-        List list1 = new ArrayList();
-        List list2 = new ArrayList();
+        List<String> list1 = new ArrayList();
+        List<String> list2 = new ArrayList();
 
         list1.add("Hii");
         list1.add("Geeks");
@@ -23,7 +23,7 @@ public class FindDuplicates {
         list1.stream()
                 .filter(list2::contains)
                 .collect(Collectors
-                        .toList());
+                        .toList()).forEach(System.out::println);
 
         System.out.println(list1);
     }

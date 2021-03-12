@@ -5,6 +5,19 @@ import java.util.stream.*;
 
 public class StreamExample {
 
+    public static void main(String[] args) {
+        StreamExample streamExample = new StreamExample();
+        streamExample.collectorOperationInStream();
+        streamExample.mapToObjUsingStream();
+        streamExample.mapToIntAndObjUsingStream();
+        streamExample.mapToIntUsingStream();
+        streamExample.collectUsingStream();
+        streamExample.findFirstUsingStream();
+        streamExample.processingOrderUsingStream();
+        streamExample.streamWithSimpleForEach();
+        streamExample.usingPrimitiveStream();
+    }
+
     /*
      A stream represents a sequence of elements and supports different kind of operations
      to perform computations
@@ -19,8 +32,7 @@ public class StreamExample {
     }
 
     private void findFirstUsingStream() {
-        Arrays.asList("a1", "a2", "a3")
-                .stream()
+        Stream.of("a1", "a2", "a3")
                 .findFirst()
                 .ifPresent(System.out::println);
     }
@@ -65,7 +77,7 @@ public class StreamExample {
     }
 
 
-    private void procesingOrderUsingStream() {
+    private void processingOrderUsingStream() {
         Stream.of("d2", "a2", "b1", "b3", "c")
                 .filter(s -> {
                     System.out.println("filter: " + s);
@@ -161,7 +173,7 @@ public class StreamExample {
                 Collector.of(
                         () -> new StringJoiner(" | "),          // supplier
                         (j, p) -> j.add(p.name.toUpperCase()),  // accumulator
-                        (j1, j2) -> j1.merge(j2),               // combiner
+                        StringJoiner::merge,               // combiner
                         StringJoiner::toString);                // finisher
 
         String names = persons
@@ -170,10 +182,14 @@ public class StreamExample {
 
         System.out.println("Collectors Collect: " + names);
 
+
+        List<Integer> IntegerRange = IntStream.range(51, 54).boxed().collect(Collectors.toList());
+        List<Integer> IntegerRange1 = IntStream.range(51, 54).mapToObj(i-> i).collect(Collectors.toList());
+        System.out.println("InStream to List : "+IntegerRange);
+        System.out.println("InStream to List : "+IntegerRange1);
     }
 
-
-    class Person {
+    static class Person {
         String name;
         int age;
 

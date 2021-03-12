@@ -9,7 +9,7 @@ public class SupplierExample {
     public static void main(String[] args) {
         Map<String, Supplier<String>> map = new HashMap<>();
 
-        map.put("def", () -> getData());
+        map.put("def", SupplierExample::getData);
 
         System.out.println("SupplierExample.main");
         System.out.println(map.get("def").get());

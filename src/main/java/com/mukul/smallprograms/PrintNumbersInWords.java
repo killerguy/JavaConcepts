@@ -10,7 +10,7 @@ public class PrintNumbersInWords {
     }
 
     private static Map<String, String> getNumberTypes() {
-        Map<String, String> numbersTypes = new HashMap<String, String>();
+        Map<String, String> numbersTypes = new HashMap<>();
         numbersTypes.put("1", "one");
         numbersTypes.put("2", "two");
         numbersTypes.put("3", "three");
@@ -22,21 +22,21 @@ public class PrintNumbersInWords {
         numbersTypes.put("9", "nine");
         numbersTypes.put("10", "ten");
         numbersTypes.put("11", "eleven");
-        numbersTypes.put("12", "tweleve");
+        numbersTypes.put("12", "twelve");
         numbersTypes.put("13", "thirteen");
         numbersTypes.put("14", "fourteen");
-        numbersTypes.put("15", "fivteen");
+        numbersTypes.put("15", "fifteen");
         numbersTypes.put("16", "sixteen");
         numbersTypes.put("17", "seventeen");
         numbersTypes.put("18", "eighteen");
         numbersTypes.put("19", "nineteen");
         numbersTypes.put("20", "twenty");
         numbersTypes.put("30", "thirty");
-        numbersTypes.put("40", "fourty");
-        numbersTypes.put("50", "fivety");
+        numbersTypes.put("40", "forty");
+        numbersTypes.put("50", "fifty");
         numbersTypes.put("60", "sixty");
         numbersTypes.put("70", "seventy");
-        numbersTypes.put("80", "eithty");
+        numbersTypes.put("80", "eighty");
         numbersTypes.put("90", "ninety");
         numbersTypes.put("100", "hundred");
         numbersTypes.put("1000", "thousand");
@@ -48,7 +48,7 @@ public class PrintNumbersInWords {
 
     private static String convertNumberToWord(String number, int supportNumberToBePrintUpto, String wordToPrint) {
         if (number.length() < supportNumberToBePrintUpto) {
-            String updatedWordToPrint = isRemaingNumberApartFromGreaterThanTwo(number) ?
+            String updatedWordToPrint = isRemainingNumberApartFromGreaterThanTwo(number) ?
                     handlingToPrintApartFromLastTwoDigit(number, supportNumberToBePrintUpto, wordToPrint) :
                     handlingToPrintLastTwoDigit(number, wordToPrint);
             return convertNumberToWord(number.substring(1), supportNumberToBePrintUpto / 10, updatedWordToPrint);
@@ -59,7 +59,7 @@ public class PrintNumbersInWords {
 
     }
 
-    private static boolean isRemaingNumberApartFromGreaterThanTwo(String number) {
+    private static boolean isRemainingNumberApartFromGreaterThanTwo(String number) {
         return number.length() != 2;
     }
 
@@ -67,13 +67,13 @@ public class PrintNumbersInWords {
         if (getNumberTypes().get("" + upto) == null) {
             word += " " + getNumberTypes().get("" + Integer.parseInt("" + number.charAt(0)) * 10);
         } else {
-            word += " " + getNumberTypes().get("" + number.charAt(0)) + getNumberTypes().get("" + upto);
+            word += " " + getNumberTypes().get("" + number.charAt(0)) +" " +getNumberTypes().get("" + upto);
         }
         return word;
     }
 
     private static String handlingToPrintLastTwoDigit(String number, String word) {
-        word += " " + getNumberTypes().get("" + (Integer.parseInt(number) / 10) * 10) + getNumberTypes().get("" + Integer.parseInt(number) % 10);
+        word += " " + getNumberTypes().get("" + (Integer.parseInt(number) / 10) * 10) +" "+ getNumberTypes().get("" + Integer.parseInt(number) % 10);
         return word;
     }
 }

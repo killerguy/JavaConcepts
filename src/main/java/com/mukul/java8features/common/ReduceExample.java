@@ -17,7 +17,7 @@ public class ReduceExample {
                 .ifPresent(System.out::println);
     }
 
-    private void simpleReduceQithBinaryOperator() {
+    private void simpleReduceWithBinaryOperator() {
         Person result = getPeople().stream()
                 .reduce(new Person("", 0), (p1, p2) -> {
                     p1.age += p2.age;
@@ -28,13 +28,13 @@ public class ReduceExample {
         System.out.format("name=%s; age=%s", result.name, result.age);
 
         Integer ageSum = getPeople().stream()
-                .reduce(0, (sum, p) -> sum += p.age, (sum1, sum2) -> sum1 + sum2);
+                .reduce(0, (sum, p) -> sum += p.age, Integer::sum);
 
         System.out.println(ageSum);
     }
 
 
-    class Person {
+    static class Person {
 
         String name;
         int age;

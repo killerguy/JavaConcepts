@@ -7,33 +7,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * This class demonstrates the fundamentals of internal and external iteration strategies
- */
+
 public class IterationStrategy {
     List<Movie> movies = MovieUtil.createMovies();
-    List<Movie> top2Classics = new ArrayList<Movie>(10);
+    List<Movie> top2Classics = new ArrayList<>(10);
 
-    /**
-     * Gathering classic movies using a traditional for loop
-     */
     private void externalIteration() {
-        for (Movie m : movies) {
-            if (m.isClassic()) {
-                top2Classics.add(m);
+        for (Movie movie : movies) {
+            if (movie.isClassic()) {
+                top2Classics.add(movie);
             }
         }
         System.out.println("Top two classics (using external iteration): " + top2Classics);
     }
 
-    /**
-     * Gathering classics using internal iteration (using streams)
-     */
     private void internalIteration() {
         movies.parallelStream()
                 .filter(Movie::isClassic)
                 .map(Movie::getName)
-                .limit(2)
+                .limit(4)
                 .forEach(System.out::println);
     }
 

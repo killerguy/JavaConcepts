@@ -5,7 +5,7 @@ import java.lang.reflect.Array;
 @SuppressWarnings("unchecked")
 public class Stack<E> {
 
-    private Class<E> clazz;
+    private final Class<E> clazz;
     private E[] elements;
     private E top;
     private int capacity;
@@ -32,8 +32,8 @@ public class Stack<E> {
         if ((index + 1) == capacity) {
             capacity *= 2;
             E[] resizedElements = (E[]) Array.newInstance(clazz, capacity);
-            for (int i = 0; i <= index; i++) {
-                resizedElements[i] = elements[i];
+            if (index + 1 >= 0) {
+                System.arraycopy(elements, 0, resizedElements, 0, index + 1);
             }
             elements = resizedElements;
         }

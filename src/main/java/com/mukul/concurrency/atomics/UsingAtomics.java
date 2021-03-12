@@ -28,7 +28,7 @@ public class UsingAtomics {
      * A Counter using AtomicInteger
      */
     static class AtomicCounter {
-        private AtomicInteger atomicInteger = new AtomicInteger(0);
+        private final AtomicInteger atomicInteger = new AtomicInteger(0);
 
         public void increment() {
             atomicInteger.incrementAndGet();
@@ -47,13 +47,13 @@ public class UsingAtomics {
         AtomicCounter counter = new AtomicCounter();
         ExecutorService ctp = Executors.newCachedThreadPool();
         for (int i = 0; i < 10_000; i++) {
-            ctp.execute(() -> counter.increment());
+            ctp.execute(counter::increment);
         }
         for (int i = 0; i < 1_000; i++) {
-            ctp.execute(() -> counter.decrement());
+            ctp.execute(counter::decrement);
         }
         ctp.shutdown();
         ctp.awaitTermination(4000, TimeUnit.SECONDS);
-        System.out.println("Result shound be 10000: Actual result is: " + counter.get());
+        System.out.println("Result should be 10000: Actual result is: " + counter.get());
     }
 }

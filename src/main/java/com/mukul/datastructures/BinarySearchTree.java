@@ -43,14 +43,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return -1;
         }
         int compared = value.compareTo(vertex.value);
-        if (compared == -1) {
+        if (compared < 0) {
             return recursiveDepth(value, vertex.left, counter + 1);
-        } else if (compared == 1) {
+        } else if (compared > 0) {
             return recursiveDepth(value, vertex.right, counter + 1);
-        } else if (compared == 0) {
+        } else {
             return counter;
         }
-        return -1;
     }
 
     public E search(E value) {
@@ -66,14 +65,13 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return null;
         }
         int comparado = value.compareTo(vertex.value);
-        if (comparado == -1) {
+        if (comparado < 0) {
             return recuriveSearch(value, vertex.left);
-        } else if (comparado == 1) {
+        } else if (comparado > 0) {
             return recuriveSearch(value, vertex.right);
-        } else if (comparado == 0) {
+        } else {
             return vertex.value;
         }
-        return value;
     }
 
     public void insert(E value) {
@@ -86,14 +84,14 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     private void recursiveInsert(E value, Vertex<E> vertex) {
         int comparado = value.compareTo(vertex.value);
-        if (comparado == -1) {
+        if (comparado < 0) {
             // left
             if (vertex.left != null) {
                 recursiveInsert(value, vertex.left);
             } else {
                 vertex.left = new Vertex<>(null, null, value);
             }
-        } else if (comparado == 1) {
+        } else if (comparado > 0) {
             // right
             if (vertex.right != null) {
                 recursiveInsert(value, vertex.right);
@@ -118,10 +116,10 @@ public class BinarySearchTree<E extends Comparable<E>> {
         }
 
         int comparado = value.compareTo(vertex.value);
-        if (comparado == -1) {
+        if (comparado < 0) {
             // left
             root.left = recursiveRemove(value, vertex.left);
-        } else if (comparado == 1) {
+        } else if (comparado > 0) {
             // right
             root.right = recursiveRemove(value, vertex.right);
         } else {
@@ -145,9 +143,4 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return vertex;
         return findMinor(vertex.left);
     }
-
-    public E getRaiz() {
-        return root.value;
-    }
-
 }

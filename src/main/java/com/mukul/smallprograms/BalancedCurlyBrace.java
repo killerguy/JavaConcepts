@@ -2,14 +2,10 @@ package com.mukul.smallprograms;
 
 import java.util.Stack;
 
-/**
- * Created by Mukul on 02/7/2018.
- */
-
-public class BalancedCurleybrace {
+public class BalancedCurlyBrace {
 
     public static void main(String[] args) {
-        System.out.println(isBalanced("()[]"));
+        System.out.println(isBalanced("[()[]]"));
     }
 
     private static boolean isBalanced(String datas) {

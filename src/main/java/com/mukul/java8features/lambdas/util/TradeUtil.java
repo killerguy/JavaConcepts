@@ -12,11 +12,11 @@ import java.util.List;
 public class TradeUtil {
 
     public static List<Trade> createTrades() {
-        List<Trade> trades = new ArrayList<Trade>();
+        List<Trade> trades = new ArrayList<>();
 
-        Trade t = new Trade(1, "GOOG", 200000, "CANCEL");
+        Trade t = new Trade(1, "GOOGLE", 200000, "CANCEL");
         trades.add(t);
-        t = new Trade(2, "APPL", 2000000, "CANCEL");
+        t = new Trade(2, "APPLE", 2000000, "CANCEL");
         trades.add(t);
         t = new Trade(3, "IBM", 3000000, "NEW");
         trades.add(t);

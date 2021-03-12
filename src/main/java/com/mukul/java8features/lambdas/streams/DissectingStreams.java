@@ -15,8 +15,6 @@ public class DissectingStreams {
 
     /**
      * A method to find the movies directed by a specific director
-     *
-     * @param director
      */
     private void findMoviesByDirector(String director) {
         movies.stream()
@@ -28,6 +26,7 @@ public class DissectingStreams {
 
     public static void main(String[] args) {
         new DissectingStreams().findMoviesByDirector("Steven Spielberg");
+        new DissectingStreams().findMoviesByDirector("anyDirector");
     }
 
 }

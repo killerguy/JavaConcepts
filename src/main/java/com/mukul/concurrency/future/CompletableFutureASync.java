@@ -8,11 +8,11 @@ public class CompletableFutureASync {
 
         Resource resource = new Resource();
 
-        CompletableFuture<String> stringCompletableFuture = CompletableFuture.supplyAsync(() -> resource.task1())
-                .thenApplyAsync(result1 -> resource.task2(result1))
-                .thenApplyAsync(result2 -> resource.task3(result2))
-                .thenApplyAsync(result3 -> resource.task4(result3))
-                .thenApplyAsync(result4 -> resource.task5(result4));
+        CompletableFuture<String> stringCompletableFuture = CompletableFuture.supplyAsync(resource::task1)
+                .thenApplyAsync(resource::task2)
+                .thenApplyAsync(resource::task3)
+                .thenApplyAsync(resource::task4)
+                .thenApplyAsync(resource::task5);
 
 
         stringCompletableFuture.get();

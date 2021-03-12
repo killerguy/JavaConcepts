@@ -7,11 +7,11 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class BackgroundTaskExecutor {
-    public static interface OnInterruption<T> {
+    public interface OnInterruption<T> {
         void accept(Future<T> t, Exception exception);
     }
 
-    public static interface OnShutdownError {
+    public interface OnShutdownError {
         void accept(ExecutorService executor, Exception exception);
     }
 
@@ -22,18 +22,15 @@ public class BackgroundTaskExecutor {
     }
 
     public <T> Future<T> execute(Callable<T> task) {
-        Future<T> submited = executor.submit(task);
-        return submited;
+        return executor.submit(task);
     }
 
     public <T> List<Future<T>> execute(List<Callable<T>> tasks) {
-        List<Future<T>> futureTasks = tasks.stream().map(executor::submit).collect(Collectors.toList());
-        return futureTasks;
+        return tasks.stream().map(executor::submit).collect(Collectors.toList());
     }
 
     public <T> boolean cancel(Future<T> task) {
-        boolean canceled = task.cancel(true);
-        return canceled;
+        return task.cancel(true);
     }
 
     public <T> boolean cancel(List<FutureTask<T>> task) {
@@ -50,8 +47,7 @@ public class BackgroundTaskExecutor {
                 return Optional.empty();
             }
         };
-        List<Optional<T>> results = tasks.stream().map(fn).collect(Collectors.toList());
-        return results;
+        return tasks.stream().map(fn).collect(Collectors.toList());
     }
 
     public <T> Optional<T> completeTask(Future<T> task, OnInterruption<T> onInterruption) {

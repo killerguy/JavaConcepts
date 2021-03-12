@@ -8,7 +8,7 @@ import java.time.Instant;
 import java.util.List;
 
 
-//Measurement of parallel operations 
+//Measurement of parallel operations
 public class PerformanceMeasurement {
 
     public void sumTradesInSerial() {
@@ -21,10 +21,10 @@ public class PerformanceMeasurement {
 
         Instant end = Instant.now();
         Duration d = Duration.between(start, end);
-        System.out.printf("%s %d %s", "Aggregating trades took ", d.toMillis(), " ms in Seqential mode");
+        System.out.printf("%s %d %s", "Aggregating trades took ", d.toMillis(), " ms in Sequential mode");
     }
 
-    public void sumTradesInParallell() {
+    public void sumTradesInParallel() {
         List<Trade> trades = TradeUtil.createTrades(100);
         Instant start = Instant.now();
         trades
@@ -38,13 +38,9 @@ public class PerformanceMeasurement {
         System.out.printf("%s %d %s", "\nAggregating trades took ", d.toMillis(), " ms in Parallel mode");
     }
 
-
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         new PerformanceMeasurement().sumTradesInSerial();
-        new PerformanceMeasurement().sumTradesInParallell();
+        new PerformanceMeasurement().sumTradesInParallel();
     }
 
 }

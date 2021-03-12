@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Stats {
-	IntStream streamOfInts = IntStream.range(1, 100);
 
 	private void summaryOfTrades() {
 		List<Trade> trades = TradeUtil.createTrades();
@@ -20,13 +19,13 @@ public class Stats {
 			.collect(Collectors.summarizingInt(Trade::getQuantity));
 		System.out.println(s);
 	}
-	
+
 	private void usingRange() {
 		IntStream ints = IntStream.range(10, 20);
-		
+
 		ints.forEach(s -> System.out.print(s+","));
 	}
-	
+
 	private void usingRangeClosed() {
 		IntStream ints = IntStream.rangeClosed(10, 20);
 		ints.forEach(s -> System.out.print(s+","));
@@ -35,17 +34,17 @@ public class Stats {
 	private void minMaxAndAverage() {
 		IntStream ints = IntStream.rangeClosed(10, 20);
 		OptionalInt max = ints.max();
-		System.out.println("Max: "+max.getAsInt());
-		
+		System.out.println("\nMax: "+max.getAsInt());
+
 		ints = IntStream.rangeClosed(10, 20);
 		OptionalInt min = ints.min();
 		System.out.println("Min: "+min.getAsInt());
-		
+
 		ints = IntStream.rangeClosed(10, 20);
 		OptionalDouble avg = ints.average();
 		System.out.println("Min: "+avg.getAsDouble());
-		
-		
+
+
 	}
 
 	public static void main(String[] args) {

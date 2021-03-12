@@ -17,8 +17,8 @@ public class CompletableAsPromise {
     private static void usingIsDone(Resource resource) throws Exception {
         System.out.println("************USING isDONE*****************");
 
-        CompletableFuture<String> promise1 = CompletableFuture.supplyAsync(() -> resource.task1());
-        CompletableFuture<String> promise2 = CompletableFuture.supplyAsync(() -> resource.task2());
+        CompletableFuture<String> promise1 = CompletableFuture.supplyAsync(resource::task1);
+        CompletableFuture<String> promise2 = CompletableFuture.supplyAsync(resource::task2);
 
         CompletableFuture<Void> stringCompletableFuture = CompletableFuture.allOf(promise1, promise2);
 
@@ -32,8 +32,8 @@ public class CompletableAsPromise {
     private static void usingJava8Stream(Resource resource) {
         System.out.println("***************** Using Stream **********************");
 
-        CompletableFuture<String> promise1 = CompletableFuture.supplyAsync(() -> resource.task1());
-        CompletableFuture<String> promise2 = CompletableFuture.supplyAsync(() -> resource.task2());
+        CompletableFuture<String> promise1 = CompletableFuture.supplyAsync(resource::task1);
+        CompletableFuture<String> promise2 = CompletableFuture.supplyAsync(resource::task2);
 
 
         String finalResultWithStream = Stream.of(promise1, promise2)
@@ -46,8 +46,8 @@ public class CompletableAsPromise {
     private static void usingNodeJSPromise(Resource resource) throws Exception {
         System.out.println("*******Using All of which is look like Node.js promise*****");
 
-        CompletableFuture<String> promise1 = CompletableFuture.supplyAsync(() -> resource.task1());
-        CompletableFuture<String> promise2 = CompletableFuture.supplyAsync(() -> resource.task2());
+        CompletableFuture<String> promise1 = CompletableFuture.supplyAsync(resource::task1);
+        CompletableFuture<String> promise2 = CompletableFuture.supplyAsync(resource::task2);
 
         String finalResultPromiseAll = CompletableFuture.allOf(promise1, promise2).thenApply(it -> {
             String firstResult = promise1.join();

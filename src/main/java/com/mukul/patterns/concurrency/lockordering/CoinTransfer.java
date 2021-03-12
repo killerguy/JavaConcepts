@@ -9,6 +9,50 @@ import java.math.BigInteger;
  */
 public class CoinTransfer {
 
+    public static void main(String[] args) {
+        CoinTransfer coinTransfer = new CoinTransfer();
+        Player srcPlayer = new Player();
+        srcPlayer.setId(1);
+        srcPlayer.setName("SrcPlayer");
+        srcPlayer.setCoins(new BigInteger("1000"));
+
+        Player destPlayer = new Player();
+        destPlayer.setId(2);
+        destPlayer.setName("DestPlayer");
+        destPlayer.setCoins(new BigInteger("900"));
+
+        coinTransfer.transferBetweenPlayers(srcPlayer,destPlayer,new BigInteger("850"));
+    }
+
+    public void transferBetweenPlayers(Player playerFrom, Player playerTo, BigInteger amount) {
+        int from = playerFrom.getId();
+        int to = playerTo.getId();
+        if (from < to) {
+            synchronized (playerFrom) {
+                synchronized (playerTo) {
+                    transferLogic(playerFrom, playerTo, amount);
+                }
+            }
+        } else {
+            synchronized (playerTo) {
+                synchronized (playerFrom) {
+                    transferLogic(playerFrom, playerTo, amount);
+                }
+            }
+        }
+        System.out.println("-------------------------------");
+        System.out.print("Source: ");
+        System.out.println(playerFrom.toString());
+        System.out.print("Destination: ");
+        System.out.println(playerTo.toString());
+        System.out.println("-------------------------------");
+    }
+
+    public void transferLogic(Player playerFrom, Player playerTo, BigInteger amount) {
+        playerFrom.withdrawCoins(amount);
+        playerTo.depositCoins(amount);
+    }
+
     static class Player {
         private int id;
         private String name;
@@ -30,8 +74,17 @@ public class CoinTransfer {
             this.name = name;
         }
 
-        public BigInteger getCoins() {
-            return coins;
+        @Override
+        public String toString() {
+            return "Player{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", coins=" + coins +
+                    '}';
+        }
+
+        public void setCoins(BigInteger coins) {
+            this.coins = coins;
         }
 
         public void depositCoins(BigInteger amount) {
@@ -47,26 +100,4 @@ public class CoinTransfer {
         }
     }
 
-    public void transferBetweenPlayers(Player playerFrom, Player playerTo, BigInteger amount) {
-        int from = playerFrom.getId();
-        int to = playerTo.getId();
-        if (from < to) {
-            synchronized (playerFrom) {
-                synchronized (playerTo) {
-                    transferLogic(playerFrom, playerTo, amount);
-                }
-            }
-        } else {
-            synchronized (playerTo) {
-                synchronized (playerFrom) {
-                    transferLogic(playerFrom, playerTo, amount);
-                }
-            }
-        }
-    }
-
-    public void transferLogic(Player playerFrom, Player playerTo, BigInteger amount) {
-        playerFrom.withdrawCoins(amount);
-        playerTo.depositCoins(amount);
-    }
 }

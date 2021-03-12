@@ -27,7 +27,7 @@ public class VolatileKeywordExample {
         sayHello = true;
 
         Thread.sleep(1000);
-        System.out.println("Say Byee..");
+        System.out.println("Say Bye..");
         sayHello = false;
     }
 

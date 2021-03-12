@@ -10,7 +10,7 @@ public class StringToIntegerConversion {
 
         convertMultiNumbersStringToIntegerArray();
 
-        convertStringtoPrimitiveInteger();
+        convertStringToPrimitiveInteger();
 
         convertStringToWrapperInteger();
     }
@@ -21,7 +21,7 @@ public class StringToIntegerConversion {
         System.out.println("Integer = " + integer);
     }
 
-    private static void convertStringtoPrimitiveInteger() {
+    private static void convertStringToPrimitiveInteger() {
         String stringNumber = "456";
         int primitive = Integer.parseInt(stringNumber);
         System.out.println("int = " + primitive);
@@ -35,7 +35,7 @@ public class StringToIntegerConversion {
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
 
-        numberList.forEach(number -> System.out.println(number));
+        numberList.forEach(System.out::println);
         numberList.forEach(System.out::println);
     }
 

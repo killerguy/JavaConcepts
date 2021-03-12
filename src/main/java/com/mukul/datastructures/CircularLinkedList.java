@@ -3,8 +3,8 @@ package com.mukul.datastructures;
 public class CircularLinkedList<E> implements LinkedList<E> {
 
     static class Node<E> {
-        E value = null;
-        Node<E> next = null;
+        E value;
+        Node<E> next;
 
         Node(E value, Node<E> next) {
             super();
@@ -58,8 +58,7 @@ public class CircularLinkedList<E> implements LinkedList<E> {
                 aux = aux.next;
                 counter++;
             }
-            Node<E> newNode = new Node<>(value, aux.next);
-            aux.next = newNode;
+            aux.next = new Node<>(value, aux.next);
         }
         size++;
     }
