@@ -12,13 +12,13 @@ public class DoublyCircularLinkedListTest extends LinkedListGenericTest{
 
     @Test
     public void shouldByCyclic(){
-        DoublyCircularLinkedList<Integer> lista = new DoublyCircularLinkedList<>();
-        lista.insert(1);
-        lista.insert(2);
-        lista.insert(3);
-        lista.insertAt(0, 1);
-        lista.insertAt(0, 3);
-        lista.removeAt(3);
-        assertTrue(lista.isCyclic());
+        DoublyCircularLinkedList<Integer> list = new DoublyCircularLinkedList<>();
+        list.insert(1);
+        list.insert(2);
+        list.insert(3);
+        list.insertAt(0, 1);
+        list.insertAt(0, 3);
+        list.removeAt(3);
+        assertTrue(list.isCyclic());
     }
 }

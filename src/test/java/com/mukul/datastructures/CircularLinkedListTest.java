@@ -12,14 +12,14 @@ public class CircularLinkedListTest extends LinkedListGenericTest {
     }
     @Test
     public void shouldByCyclic(){
-        CircularLinkedList<Integer> lista = new CircularLinkedList<>();
-        lista.insert(1);
-        lista.insert(2);
-        lista.insert(3);
-        lista.insertAt(0, 1);
-        lista.insertAt(0, 3);
-        lista.removeAt(3);
-        assertTrue(lista.ehCircular());
+        CircularLinkedList<Integer> list = new CircularLinkedList<>();
+        list.insert(1);
+        list.insert(2);
+        list.insert(3);
+        list.insertAt(0, 1);
+        list.insertAt(0, 3);
+        list.removeAt(3);
+        assertTrue(list.ehCircular());
     }
 
 

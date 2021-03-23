@@ -2,8 +2,7 @@ package com.mukul.datastructures;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BinarySearchTreeTest {
 
@@ -66,7 +65,7 @@ public class BinarySearchTreeTest {
         tree.insert(20);
 
         assertTrue(tree.remove(5));
-        assertEquals(null, tree.search(5));
+        assertNull(tree.search(5));
     }
 
     @Test
@@ -80,7 +79,7 @@ public class BinarySearchTreeTest {
         tree.insert(25);
         tree.insert(30);
         assertTrue(tree.remove(5));
-        assertEquals(null, tree.search(5));
+        assertNull(tree.search(5));
     }
 
 

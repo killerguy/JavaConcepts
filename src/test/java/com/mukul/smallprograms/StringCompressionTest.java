@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class StringCompressionTest {
 
-    private StringCompression stringCompression = new StringCompression();
+    private final StringCompression stringCompression = new StringCompression();
 
     @Test
     public void withOneSingleChar() {

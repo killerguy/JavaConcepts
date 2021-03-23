@@ -2,6 +2,7 @@ package com.mukul.datastructures;
 
 import org.junit.Test;
 
+import static java.util.Optional.*;
 import static org.junit.Assert.*;
 
 public class StackTest {
@@ -53,7 +54,7 @@ public class StackTest {
         stack.push(0);
         stack.push(10);
         stack.push(100);
-        assertTrue(100 == stack.top());
+        assertEquals(of(100), stack.top());
     }
 
     @Test
