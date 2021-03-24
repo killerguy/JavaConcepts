@@ -54,7 +54,7 @@ public class StackTest {
         stack.push(0);
         stack.push(10);
         stack.push(100);
-        assertEquals(of(100), stack.top());
+        assertEquals(of(100).get(), stack.top());
     }
 
     @Test
