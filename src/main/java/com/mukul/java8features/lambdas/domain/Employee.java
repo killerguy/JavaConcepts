@@ -12,6 +12,8 @@ public class Employee {
 	private boolean senior = false;
 	private int ratings = 10;
 
+	public Employee(){}
+
 	public int getRatings() {
 		return ratings;
 	}
