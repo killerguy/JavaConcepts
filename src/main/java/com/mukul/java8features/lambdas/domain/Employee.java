@@ -25,6 +25,7 @@ public class Employee {
 	public Employee(int id) {
 		this.id = id;
 		this.name = "Mars Man";
+		setRatings(5);
 		address = new Address();
 
 		address.setAddressLine1("11");
