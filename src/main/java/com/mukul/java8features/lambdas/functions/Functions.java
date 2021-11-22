@@ -30,15 +30,7 @@ public class Functions {
 
 	List<Trade> trades = TradeUtil.createTrades();
 
-	Function<Integer, Trade> tradeFinder = (id) -> {
-		// Run through all trades checking against the given one
-		Trade trade = new Trade();
-		for (Trade t : trades) {
-			if (t.getId() == id)
-				trade = t;
-		}
-		return trade;
-	};
+	Function<Integer, Trade> tradeFinder = (id) -> trades.stream().filter(t -> t.getId() == id).findFirst().get();
 
 	public void tradeFinder(Integer id) {
 		Trade trade = tradeFinder.apply(id);

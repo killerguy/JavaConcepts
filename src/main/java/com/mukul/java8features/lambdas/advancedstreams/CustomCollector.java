@@ -12,10 +12,7 @@ import java.util.function.Supplier;
  */
 public class CustomCollector {
 	List<Trade> trades = TradeUtil.createTrades();
-	
-	/**
-	 * Create own collector of csv strings
-	 */
+
 	private void collectToCustomCollector() {
 		// A supplier
 		Supplier<StringBuilder> supplier = StringBuilder::new;

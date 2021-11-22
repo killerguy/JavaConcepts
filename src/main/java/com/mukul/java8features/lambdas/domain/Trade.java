@@ -4,14 +4,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Trade {
 
-    private AtomicInteger tradeId = new AtomicInteger();
-
     private int id = 0;
-    private String instrument = null;
-
-    private String status = null;
-
     private int quantity = 0;
+    private String instrument;
+    private String status;
+    private AtomicInteger tradeId = new AtomicInteger();
 
     public Trade(int id) {
         setId(tradeId.getAndIncrement());

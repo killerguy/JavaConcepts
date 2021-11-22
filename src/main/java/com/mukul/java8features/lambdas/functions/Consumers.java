@@ -58,7 +58,9 @@ public class Consumers {
 	
 	public static void main(String[] args) {
 		Movie m = new Movie("Mission Impossible");
-		new Consumers().andThenTest(m);
+		Consumers consumers = new Consumers();
+
+		consumers.andThenTest(m);
 	}
 	
 }
