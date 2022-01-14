@@ -1,5 +1,8 @@
 package com.mukul.java7features;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class MyAutoClosable implements AutoCloseable {
 
     public void doIt() {
@@ -20,6 +23,7 @@ public class MyAutoClosable implements AutoCloseable {
 
     public static void main(String[] args) throws Exception {
         myAutoClosable();
+        log.info("Main method closed");
     }
 
 }

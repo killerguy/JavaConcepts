@@ -16,13 +16,10 @@ import org.jsonschema2pojo.rules.RuleFactory;
 import com.sun.codemodel.JCodeModel;
 
 public class JsonToPojo {
-	
-	/**
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 		
-		String packageName="com.cooltrickshome";
+		String packageName="com.mukul.utility";
 		File inputJson= new File("."+File.separator+"input.json");
 		File outputPojoDirectory=new File("."+File.separator+"convertedPojo");
 		outputPojoDirectory.mkdirs();
@@ -38,8 +35,6 @@ public class JsonToPojo {
 	public void convert2JSON(URL inputJson, File outputPojoDirectory, String packageName, String className) throws IOException{
 		JCodeModel codeModel = new JCodeModel();
 
-		URL source = inputJson;
-
 		GenerationConfig config = new DefaultGenerationConfig() {
 		@Override
 		public boolean isGenerateBuilders() { // set config option by overriding method
@@ -50,7 +45,7 @@ public class JsonToPojo {
         }
 		};
 		SchemaMapper mapper = new SchemaMapper(new RuleFactory(config, new Jackson2Annotator(config), new SchemaStore()), new SchemaGenerator());
-		mapper.generate(codeModel, className, packageName, source);
+		mapper.generate(codeModel, className, packageName, inputJson);
 
 		codeModel.build(outputPojoDirectory);
 	}
