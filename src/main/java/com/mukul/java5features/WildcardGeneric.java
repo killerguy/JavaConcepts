@@ -1,10 +1,7 @@
 package com.mukul.java5features;
 
-/*
- * Class to Demonstrate WildCard Generics
- */
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 abstract class Shape {
 	abstract void draw();
@@ -30,11 +27,11 @@ public class WildcardGeneric {
 		}
 	}
 
-	public static void main(String args[]) {
-		List<Rectangle> list1 = new ArrayList<Rectangle>();
+	public static void main(String[] args) {
+		List<Rectangle> list1 = new ArrayList<>();
 		list1.add(new Rectangle());
 
-		List<Circle> list2 = new ArrayList<Circle>();
+		List<Circle> list2 = new ArrayList<>();
 		list2.add(new Circle());
 		list2.add(new Circle());
 

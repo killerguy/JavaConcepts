@@ -46,7 +46,7 @@ public class AppBeanFactoryTest {
         assertThat(AppBeanFactory.getBean(Employee.class, "Employee"), any(Employee.class));
     }
 
-    @Test(expected = AppBeanFactory.StellarBeanFactoryException.class)
+    @Test(expected = AppBeanFactory.BeanFactoryException.class)
     public void shouldThrowsExceptionOnNameNotFound() {
         StaticApplicationContext applicationContext = new StaticApplicationContext();
         applicationContext.registerPrototype("Employee", Employee.class);

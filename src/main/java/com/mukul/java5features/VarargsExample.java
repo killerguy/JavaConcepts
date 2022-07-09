@@ -11,7 +11,7 @@ class VarargsExample {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         display();// zero argument
         System.out.println("*********************************************");

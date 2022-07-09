@@ -7,11 +7,6 @@ import java.util.stream.IntStream;
 
 public class FlatMapExample {
 
-    /*
-    * FlatMap transforms each element of the stream into a stream of other objects.
-    * So each object will be transformed into zero, one or multiple other objects backed by streams.
-    * The contents of those streams will then be placed into the returned stream of the flatMap operation.
-    */
     public static void main(String[] args) {
         FlatMapExample flatMapExample = new FlatMapExample();
         flatMapExample.simpleFlatMapExample();

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class EnhancedForLoop {
 	public static void main(String[] args) {
-		List<String> aList = new ArrayList<String>();
+		List<String> aList = new ArrayList<>();
 
 		aList.add("Gabbar");
 		aList.add("Jaykant Sikhare");
@@ -14,11 +14,11 @@ public class EnhancedForLoop {
 		aList.add("Shakaal");
 		aList.add("Jageera");
 
-		System.out.println("Listing Using Enhaced For Loop :");
+		System.out.println("Listing Using Enhanced For Loop :");
 		System.out.println("************************************************");
 		
-		for(String a: aList){
-			System.out.println(a);		
+		for(String str: aList){
+			System.out.println(str);
 		}
 		
 		System.out.println("************************************************");

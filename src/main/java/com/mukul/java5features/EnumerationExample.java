@@ -4,9 +4,9 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 public class EnumerationExample {
-    public static void main(String a[]) {
+    public static void main(String[] a) {
 
-        Vector<String> lang = new Vector<String>();
+        Vector<String> lang = new Vector<>();
         lang.add("JAVA");
         lang.add("JS");
         lang.add("KOTLIN");

@@ -19,7 +19,7 @@ public class AppBeanFactory implements ApplicationContextAware {
             try {
                 return clazz.cast(context.getBean(className));
             } catch (NoSuchBeanDefinitionException e) {
-                throw new StellarBeanFactoryException(e);
+                throw new BeanFactoryException(e);
             }
         }
         return null;
@@ -30,8 +30,8 @@ public class AppBeanFactory implements ApplicationContextAware {
         AppBeanFactory.context = context;
     }
 
-    public static class StellarBeanFactoryException extends RuntimeException {
-        public StellarBeanFactoryException(Exception e) {
+    public static class BeanFactoryException extends RuntimeException {
+        public BeanFactoryException(Exception e) {
             super(e);
         }
     }

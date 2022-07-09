@@ -5,42 +5,22 @@ package com.mukul.java8features.lambdas.advancedlambdas;
  */
 public class Employee {
 
-	/**
-	 * An Employee created using an id
-	 * @param id
-	 */
 	public Employee(int id) {
 		// Logic for creating an employee with an id
 	}
 
-	/**
-	 * An Employee created using an id and a name
-	 * @param id
-	 * @param name
-	 */
 	public Employee(int id, String name) {
 		// Logic for creating an employee with an id and name.
 	}
 
-	/**
-	 *  Interface representing the first constructor
-	 *
-	 */
 	interface EmployeeById {
 		public Employee create(int id);
 	}
 
-	/**
-	 *  Interface representing the second constructor
-	 *
-	 */
 	interface EmployeeByName {
 		public Employee create(int id, String employee);
 	}
 	
-	/**
-	 * Lambdas without using constructor references
-	 */
 	public void normalLambdaExpressions(){
 		// Lambda invoking the first constructor - no const refs
 		EmployeeById empLambda = id -> new Employee(id);

@@ -9,6 +9,13 @@ public class ReduceExample {
     - Java 8 supports three different kind of reduce methods.
      */
 
+    public static void main(String[] args) {
+        ReduceExample reduceExample = new ReduceExample();
+        reduceExample.simpleReduceExample();
+        System.out.println("___________________________");
+        reduceExample.simpleReduceWithBinaryOperator();
+    }
+
     private void simpleReduceExample() {
         List<Person> persons = getPeople();
         persons

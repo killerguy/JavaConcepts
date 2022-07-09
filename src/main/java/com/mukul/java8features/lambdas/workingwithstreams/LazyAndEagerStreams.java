@@ -50,7 +50,7 @@ public class LazyAndEagerStreams {
     }
 
     public static void main(String[] args) {
-      //  new LazyAndEagerStreams().eagerTerminalOperator();
+       new LazyAndEagerStreams().eagerTerminalOperator();
         System.out.println("-----------------------------------");
         new LazyAndEagerStreams().lazyIntermediateOperator();
     }

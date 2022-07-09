@@ -26,7 +26,7 @@ public class DateExample {
     public static final int CUTOFF_DAYS = 15;
     private static final int MILLISECONDS = 1000;
     public static final long MILLISECONDS_IN_MINUTE = 60 * (long) MILLISECONDS;
-    private static final Pattern DATETIME_JSON_PATTERN = Pattern.compile("^/Date\\(((\\+|-)?\\d+)((\\+|-)\\d{4})?\\)/");
+    private static final Pattern DATETIME_JSON_PATTERN = Pattern.compile("^/Date\\((([+\\-])?\\d+)((\\+|-)\\d{4})?\\)/");
 
     public static void main(String[] argv) throws ParseException {
         Date date = new Date();

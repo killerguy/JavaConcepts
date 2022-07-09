@@ -20,7 +20,7 @@ class Hello {
 
 // Accessing annotation
 public class CustomAnnotation {
-	public static void main(String args[]) throws Exception {
+	public static void main(String[] args) throws Exception {
 
 		Hello h = new Hello();
 		Method m = h.getClass().getMethod("sayHello");

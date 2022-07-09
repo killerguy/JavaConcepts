@@ -7,14 +7,14 @@ public class StreamExample {
 
     public static void main(String[] args) {
         StreamExample streamExample = new StreamExample();
+        streamExample.streamWithSimpleForEach();
+        streamExample.findFirstUsingStream();
         streamExample.collectorOperationInStream();
         streamExample.mapToObjUsingStream();
         streamExample.mapToIntAndObjUsingStream();
         streamExample.mapToIntUsingStream();
         streamExample.collectUsingStream();
-        streamExample.findFirstUsingStream();
         streamExample.processingOrderUsingStream();
-        streamExample.streamWithSimpleForEach();
         streamExample.usingPrimitiveStream();
     }
 
@@ -38,7 +38,7 @@ public class StreamExample {
     }
 
     /*
-    Besides regular object streams Java 8 ships with special kinds of streams for working
+    Besides, regular object streams Java 8 ships with special kinds of streams for working
      with the primitive data types int, long and double.
      It's IntStream, LongStream and DoubleStream
      */
