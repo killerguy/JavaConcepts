@@ -3,8 +3,9 @@ package com.mukul.java7features;
 public class SwitchStringExample {
     public static void main(String[] args) {
         printColorUsingSwitch("red");
+        printColorUsingIf("blue");
         printColorUsingIf("red");
-        // switch case string is case sensitive
+        // switch case string is case-sensitive
         printColorUsingSwitch("RED");
         //  printColorUsingSwitch(null);
     }

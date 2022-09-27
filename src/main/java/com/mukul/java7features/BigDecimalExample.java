@@ -1,4 +1,4 @@
-package com.mukul.java7features.bigdecimal;
+package com.mukul.java7features;
 
 import java.text.DecimalFormat;
 

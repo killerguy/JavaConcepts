@@ -17,7 +17,7 @@ public class StringToIntegerConversion {
 
     private static void convertStringToWrapperInteger() {
         String stringNumber = "123";
-        int integer = Integer.parseInt(stringNumber);
+        Integer integer = Integer.parseInt(stringNumber);
         System.out.println("Integer = " + integer);
     }
 
@@ -35,7 +35,6 @@ public class StringToIntegerConversion {
                 .map(Integer::valueOf)
                 .collect(Collectors.toList());
 
-        numberList.forEach(System.out::println);
         numberList.forEach(System.out::println);
     }
 

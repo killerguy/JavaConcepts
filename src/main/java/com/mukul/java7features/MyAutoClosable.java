@@ -14,7 +14,7 @@ public class MyAutoClosable implements AutoCloseable {
         System.out.println("MyAutoClosable closed!");
     }
 
-    private static void myAutoClosable() throws Exception {
+    private static void myAutoClosable() {
 
         try (MyAutoClosable myAutoClosable = new MyAutoClosable()) {
             myAutoClosable.doIt();
