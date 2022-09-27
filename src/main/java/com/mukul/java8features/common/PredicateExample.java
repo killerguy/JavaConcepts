@@ -14,7 +14,8 @@ public class PredicateExample {
         combinedPredicatesUsingAnd();
         combinedPredicatesUsingOr();
         combinedPredicatesUsingOrAndNegate();
-        collectionOfPredicates();
+        collectionOfPredicatesUsingAnd();
+        collectionOfPredicatesUsingOr();
 
     }
 
@@ -62,7 +63,7 @@ public class PredicateExample {
         System.out.println(result);
     }
 
-    public static void collectionOfPredicates() {
+    public static void collectionOfPredicatesUsingAnd() {
         List<Predicate<String>> allPredicates = new ArrayList<>();
         allPredicates.add(str -> str.startsWith("A"));
         allPredicates.add(str -> str.contains("d"));
@@ -72,7 +73,21 @@ public class PredicateExample {
                 .filter(allPredicates.stream().reduce(x -> true, Predicate::and))
                 .collect(Collectors.toList());
 
-        System.out.println("-----------Collection of Predicate---------------");
+        System.out.println("-----------Collection of Predicate using AND---------------");
+        System.out.println(result);
+    }
+
+    public static void collectionOfPredicatesUsingOr() {
+        List<Predicate<String>> allPredicates = new ArrayList<>();
+        allPredicates.add(str -> str.startsWith("A"));
+        allPredicates.add(str -> str.contains("d"));
+        allPredicates.add(str -> str.length() > 4);
+
+        List<String> result = names.stream()
+                .filter(allPredicates.stream().reduce(x->false, Predicate::or))
+                .collect(Collectors.toList());
+
+        System.out.println("-----------Collection of  Predicate Using OR---------------");
         System.out.println(result);
     }
 }
