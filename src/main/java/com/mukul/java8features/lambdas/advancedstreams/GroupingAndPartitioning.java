@@ -25,7 +25,7 @@ public class GroupingAndPartitioning {
 	private void groupingByDepartment() {
 		Map<String, List<Employee>> deptEmployees = employees
 			.stream()
-			.collect(groupingBy(e -> e.getDepartment()));
+			.collect(groupingBy(Employee::getDepartment));
 
 		System.out.println(deptEmployees);
 	}

@@ -32,11 +32,11 @@ public class TradableLambda {
         Trade trade = new Trade(1, "APPLE", 15000000, "NEW");
 
         // Check for a big trade
-        Tradable<Trade> bigTradeLambda = (t) -> t.isBigTrade();
+        Tradable<Trade> bigTradeLambda = Trade::isBigTrade;
         new TradableLambda().checkTrade(bigTradeLambda, trade);
 
         // Check for a cancelled trade
-        Tradable<Trade> cancelledLambda = (t) -> t.isCancelledTrade();
+        Tradable<Trade> cancelledLambda = Trade::isCancelledTrade;
         new TradableLambda().checkTrade(cancelledLambda, trade);
 
         // Check for a new or unknown trade

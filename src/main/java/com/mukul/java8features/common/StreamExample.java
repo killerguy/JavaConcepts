@@ -1,5 +1,7 @@
 package com.mukul.java8features.common;
 
+import lombok.Getter;
+
 import java.util.*;
 import java.util.stream.*;
 
@@ -16,6 +18,7 @@ public class StreamExample {
         streamExample.collectUsingStream();
         streamExample.processingOrderUsingStream();
         streamExample.usingPrimitiveStream();
+        streamExample.sortingExample();
     }
 
     /*
@@ -189,6 +192,19 @@ public class StreamExample {
         System.out.println("InStream to List : "+IntegerRange1);
     }
 
+    public void sortingExample(){
+        List<Product> products = Arrays.asList(
+                new Product("Laptop", 1000),
+                new Product("Shirt", 20),
+                new Product("Phone", 500)
+        );
+        List<Product> sortedByPrice = products.stream()
+                .sorted(Comparator.comparingInt(Product::getPrice))  // Sorts in ascending order by price
+                .collect(Collectors.toList());
+
+    }
+
+
     static class Person {
         String name;
         int age;
@@ -203,6 +219,19 @@ public class StreamExample {
             return name;
         }
     }
+
+    static class Product {
+        @Getter
+        int price;
+        String name;
+        public Product(String laptop, int price) {
+            this.name = laptop;
+            this.price=price;
+        }
+
+    }
+
+
 
 }
 

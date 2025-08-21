@@ -26,6 +26,21 @@ public class CollectionsUtils {
         sprouts.add("Lentils");
 
         System.out.println(joinLists(fruits,vegetables,sprouts));
+
+        // flatMapping example
+        List<List<String>> all = Arrays.asList(fruits, vegetables, sprouts);
+        List<String> flat = flatMapping(all, Function.identity(), Collectors.toList());
+        System.out.println("Flat list: " + flat);
+
+        // entry example
+        Map.Entry<String, Integer> entry = entry("Key", 123);
+        System.out.println("Entry: " + entry);
+
+        // isNotEmpty example
+        System.out.println("Fruits not empty: " + isNotEmpty(fruits));
+        System.out.println("Empty list not empty: " + isNotEmpty(Collections.emptyList()));
+
+
     }
 
 

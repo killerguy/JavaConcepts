@@ -42,9 +42,9 @@ public class Stats {
 
 		ints = IntStream.rangeClosed(10, 20);
 		OptionalDouble avg = ints.average();
-		System.out.println("Min: "+avg.getAsDouble());
-
-
+		if(avg.isPresent()){
+			System.out.println("Min: "+avg.getAsDouble());
+		}
 	}
 
 	public static void main(String[] args) {

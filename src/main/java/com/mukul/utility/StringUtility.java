@@ -10,6 +10,8 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+import static java.util.Objects.isNull;
+
 public class StringUtility {
 
     private static final Predicate<String> NULL_STRING_PREDICATE = Objects::isNull;
@@ -25,7 +27,7 @@ public class StringUtility {
     }
 
     public static boolean isEmpty(String str) {
-        return Optional.ofNullable(str).map(i -> i.length() == 0).orElse(true);
+        return Optional.ofNullable(str).map(String::isEmpty).orElse(true);
     }
 
     public static boolean isNotEmpty(String str) {
@@ -47,7 +49,7 @@ public class StringUtility {
     }
 
     public static boolean isString(final Object value) {
-        if (Objects.isNull(value)) {
+        if (isNull(value)) {
             throw new IllegalArgumentException(NULL_STRING_MSG_SUPPLIER.get());
         }
         return value instanceof String;
@@ -70,7 +72,7 @@ public class StringUtility {
 
     public static boolean equalsIgnoreCaseWithTrim(final String s1, final String s2) {
         if (s1 == null || s2 == null) {
-            return s1 == s2;
+            return Objects.equals(s1, s2);
         }
         return s1.trim().equalsIgnoreCase(s2.trim());
     }
