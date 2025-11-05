@@ -1,16 +1,18 @@
 
 package com.mukul.java8features.common;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertTrue;
 
-class FlatMapExampleTest {
+
+public class FlatMapExampleTest {
 
     @Test
-    void testSimpleFlatMapExampleAndSinglePipelineFlatMapExample() {
+    public void testSimpleFlatMapExampleAndSinglePipelineFlatMapExample() {
         FlatMapExample example = new FlatMapExample();
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();

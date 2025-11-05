@@ -13,4 +13,11 @@ public class StringRotation {
     private boolean isSubstring(String complete, String sub) {
         return complete.contains(sub);
     }
+
+    public static void main(String[] args) {
+        StringRotation stringRotation = new StringRotation();
+        System.out.println(stringRotation.rotated("waterbottle", "erbottlewat")); // true
+        System.out.println(stringRotation.rotated("hello", "llohe")); // true
+        System.out.println(stringRotation.rotated("hello", "world")); // false
+    }
 }

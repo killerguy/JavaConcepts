@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 public class CollectionsUtils {
 
     public static void main(String[] args) {
-        List<String> fruits = new ArrayList();
-        List<String> vegetables = new ArrayList();
-        List<String> sprouts = new ArrayList();
+        List<String> fruits = new ArrayList<>();
+        List<String> vegetables = new ArrayList<>();
+        List<String> sprouts = new ArrayList<>();
 
         fruits.add("Apple");
         fruits.add("Grapes");
@@ -40,10 +40,10 @@ public class CollectionsUtils {
         System.out.println("Fruits not empty: " + isNotEmpty(fruits));
         System.out.println("Empty list not empty: " + isNotEmpty(Collections.emptyList()));
 
-
     }
 
 
+    @SafeVarargs
     public static <T> List<T> joinLists(List<T>... lists) {
         return Arrays.stream(lists).flatMap(Collection::stream).collect(Collectors.toList());
     }

@@ -1,5 +1,7 @@
 package com.mukul.smallprograms;
 
+import java.util.Arrays;
+
 public class ArraySorting {
 
     public static void main(String[] args) {
@@ -23,7 +25,8 @@ public class ArraySorting {
         System.out.println("\nAfter sorting");
         for (int i : a) {
             System.out.print(i + ",");
-
         }
+        System.out.println("---------------");
+        Arrays.stream(a).mapToObj(i -> i + ",").forEach(System.out::print);
     }
 }

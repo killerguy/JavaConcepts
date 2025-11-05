@@ -13,7 +13,7 @@ public class CamelCase {
     private static final Supplier<String> NULL_STRING_MSG_SUPPLIER = () -> "'value' should be not null.";
 
     public static String toCamelCase(final String value) {
-        if (value == null || value.length() == 0) {
+        if (value == null || value.isEmpty()) {
             return "";
         }
         String str = toStudlyCase(value);

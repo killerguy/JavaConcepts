@@ -14,7 +14,7 @@ public class FlatMapExample {
 
     }
 
-    private void simpleFlatMapExample() {
+    void simpleFlatMapExample() {
 
         List<Foo> foos = new ArrayList<>();
 
@@ -30,7 +30,7 @@ public class FlatMapExample {
                 .forEach(b -> System.out.println(b.name));
     }
 
-    private void singlePipelineFlatMapExample() {
+    void singlePipelineFlatMapExample() {
         IntStream.range(1, 4)
                 .mapToObj(i -> new Foo("Foo" + i))
                 .peek(f -> IntStream.range(1, 4)
